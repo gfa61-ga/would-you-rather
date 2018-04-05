@@ -1,3 +1,8 @@
+const getApiTimeout = () => {
+  const savedTimeout = JSON.parse(localStorage.getItem('apiTimeout'));
+  return (savedTimeout || savedTimeout === 0) ? savedTimeout : 1000;
+};
+
 let users = {
   princessLeia: {
     id: 'princessLeia',
@@ -121,13 +126,13 @@ function generateUID () {
 
 export function _getUsers () {
   return new Promise((resolve, reject) => {
-    setTimeout(() => resolve({...users}), 1000);
+    setTimeout(() => resolve({...users}), getApiTimeout());
   });
 }
 
 export function _getQuestions () {
   return new Promise((resolve, reject) => {
-    setTimeout(() => resolve({...questions}), 1000);
+    setTimeout(() => resolve({...questions}), getApiTimeout());
   });
 }
 
@@ -158,7 +163,7 @@ export function _saveQuestion (question) {
       };
 
       resolve(formattedQuestion);
-    }, 1000);
+    }, getApiTimeout());
   });
 }
 

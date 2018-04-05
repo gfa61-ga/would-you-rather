@@ -1,7 +1,8 @@
 import { List, Record } from 'immutable';
-import { LOGIN_USER, LOGOUT_USER, SET_USERS } from './constants';
+import { LOGIN_USER, SET_IS_LOADING, SET_USERS } from './constants';
 
 const ModuleStateRecord = Record({
+  isLoading: true,
   loggedInUserId: null,
   users: []
 });
@@ -20,12 +21,12 @@ export default function loginReducer (moduleState = initialModuleState, action) 
   const { type, payload } = action;
 
   switch (type) {
-    case LOGIN_USER : {
+    case LOGIN_USER: {
       return moduleState.set('loggedInUserId', action.payload.userId);
     }
 
-    case LOGOUT_USER: {
-      return moduleState.set('loggedInUserId', null);
+    case SET_IS_LOADING: {
+      return moduleState.set('isLoading', payload.isLoading);
     }
 
     case SET_USERS: {

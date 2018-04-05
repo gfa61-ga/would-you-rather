@@ -1,8 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';
+import { getLoggedInUser } from 'modules/login/selectors';
+
+const mapStateToProps = state => ({
+  isAuthenticated: !!getLoggedInUser(state)
+});
 
 // based on: https://tylermcginnis.com/react-router-protected-routes-authentication/
-export default function PrivateRoute ({ component: Component, isAuthenticated = false, ...rest }) {
+function PrivateRoute ({ component: Component, isAuthenticated, ...rest }) {
   return (
     <Route {...rest} render={(props) => (
       isAuthenticated === true
@@ -11,3 +17,5 @@ export default function PrivateRoute ({ component: Component, isAuthenticated = 
     )} />
   );
 }
+
+export default connect(mapStateToProps)(PrivateRoute);

@@ -15,11 +15,14 @@ class MainMenu extends React.Component {
   render () {
     const { loggedInUser, dispatchLogoutUser } = this.props;
     return (
-      <nav>
-        <ul style={{ listStyleType: 'none', display: 'flex', padding: 0 }}>
-          <li>{ loggedInUser.name }</li>
-          <li>
-            <button onClick={dispatchLogoutUser}>Logout</button>
+      <nav style={{ backgroundColor: '#124d77', padding: 15, color: 'white', marginLeft: -15, marginRight: -15, marginTop: -15 }}>
+        <ul style={{ listStyleType: 'none', display: 'flex', padding: 0, alignItems: 'center', margin: 0 }}>
+          <li style={{ display: 'flex', alignItems: 'center', color: '#b7d5ea' }}>
+            <img alt={loggedInUser.name} src={loggedInUser.avatarURL} style={{ width: 80, height: 80, objectFit: 'cover', marginRight: 15 }} />
+            { loggedInUser.name }
+          </li>
+          <li style={{ marginLeft: 'auto' }}>
+            <button className='myButton' onClick={dispatchLogoutUser}>Logout</button>
           </li>
         </ul>
       </nav>

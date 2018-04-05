@@ -1,23 +1,28 @@
-import { _getUsers } from 'fakeApi/_DATA';
-import { LOGIN_USER, LOGOUT_USER, SET_USERS } from './constants';
+import customHistory from 'modules/app/customHistory';
+import { LOGIN_USER, SET_IS_LOADING, SET_USERS } from './constants';
 
-export const fetchUsers = () => async (dispatch) => {
-  const users = await _getUsers();
-
-  if (users) {
-    dispatch(setUsers(users));
-  } else {
-    console.error('Error fetching users :(', users);
-  }
+export const loginUser = userId => dispatch => {
+  localStorage.setItem('loggedInUserId', JSON.stringify(userId));
+  dispatch(setLoggedInUser(userId));
+  const originalUrl = JSON.parse(localStorage.getItem('originalUrl'));
+  const redirectUrl = originalUrl && originalUrl !== '/login' ? originalUrl : '/';
+  customHistory.push(redirectUrl);
+  localStorage.removeItem('originalUrl');
 };
 
-export const loginUser = (userId) => ({
-  type: LOGIN_USER,
-  payload: { userId }
+export const logoutUser = () => dispatch => {
+  localStorage.removeItem('loggedInUserId');
+  dispatch(setLoggedInUser(null));
+};
+
+export const setIsLoading = isLoading => ({
+  type: SET_IS_LOADING,
+  payload: { isLoading }
 });
 
-export const logoutUser = () => ({
-  type: LOGOUT_USER
+export const setLoggedInUser = userId => ({
+  type: LOGIN_USER,
+  payload: { userId }
 });
 
 export const setUsers = users => ({

@@ -1,6 +1,8 @@
+export const DEFAULT_API_TIMEOUT = 1000;
+
 const getApiTimeout = () => {
   const savedTimeout = JSON.parse(localStorage.getItem('apiTimeout'));
-  return (savedTimeout || savedTimeout === 0) ? savedTimeout : 1000;
+  return (savedTimeout || savedTimeout === 0) ? savedTimeout : DEFAULT_API_TIMEOUT;
 };
 
 let users = {

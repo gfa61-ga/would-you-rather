@@ -1,8 +1,9 @@
 import React from 'react';
+import { DEFAULT_API_TIMEOUT } from 'fakeApi/_DATA';
 
 export default class DebugTools extends React.Component {
   state = {
-    apiTimeout: localStorage.getItem('apiTimeout') || 0
+    apiTimeout: localStorage.getItem('apiTimeout') || DEFAULT_API_TIMEOUT
   }
 
   handleChange = event => {

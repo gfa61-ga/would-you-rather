@@ -39,14 +39,15 @@
 + The option selected by the logged in user should be clearly marked.
 + When the user is logged in, the details of the poll are shown. If the user is logged out, he/she is asked to log in before before being able to access the poll.
 + The application shows a 404 page if that poll does not exist. (Please keep in mind that new polls will not be accessible at their url because of the way the backend is set up in this application.)
-+ Does the voting mechanism work correctly?
+-----
 
++ Does the voting mechanism work correctly?
 + Upon voting in a poll, all of the information of the answered poll is displayed.
 + The user’s response is recorded and is clearly visible on the poll details page.
 + When the user comes back to the home page, the polling question appears in the “Answered” column.
 + The voting mechanism works correctly, and the data on the leaderboard changes appropriately.
-+ Can users add new polls?
 
++ Can users add new polls?
 + The form is available at /add.
 + The application shows the text “Would You Rather” and has a form for creating two options.
 + Upon submitting the form, a new poll is created and the user is taken to the home page.

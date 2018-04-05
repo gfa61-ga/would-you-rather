@@ -1,5 +1,5 @@
 import { _getUsers } from 'fakeApi/_DATA';
-import { LOGIN_USER, SET_USERS } from './constants';
+import { LOGIN_USER, LOGOUT_USER, SET_USERS } from './constants';
 
 export const fetchUsers = () => async (dispatch) => {
   const users = await _getUsers();
@@ -14,6 +14,10 @@ export const fetchUsers = () => async (dispatch) => {
 export const loginUser = (userId) => ({
   type: LOGIN_USER,
   payload: { userId }
+});
+
+export const logoutUser = () => ({
+  type: LOGOUT_USER
 });
 
 export const setUsers = users => ({

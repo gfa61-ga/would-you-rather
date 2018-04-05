@@ -31,8 +31,8 @@ class Login extends React.Component {
         <h1>Login</h1>
         <ul style={{ display: 'flex', flexDirection: 'row', padding: 0 }}>
           {users.map((user, index) => (
-            <Link to='/'>
-              <li key={user.id} onClick={() => dispatchLoginUser(user.id)} style={{
+            <Link key={user.id} to='/'>
+              <li onClick={() => dispatchLoginUser(user.id)} style={{
                 display: 'flex',
                 width: 210,
                 flexDirection: 'column',

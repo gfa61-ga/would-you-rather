@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { conciseDateTime } from 'modules/shared/helpers';
 import { getAnsweredQuestions, getQuestionTypeFilter, getUnansweredQuestions } from './selectors';
 import { fetchQuestions, setQuestionTypeFilter } from './actions';
 
@@ -69,7 +70,12 @@ class Homepage extends React.Component {
             <h1>Unanswered questions</h1>
             <ul>
               {unansweredQuestions.map(question => {
-                return <li key={question.id}>{question.optionOne.text} : {question.optionTwo.text}</li>;
+                return (
+                  <li key={question.id}>
+                    <span style={{ width: 165, display: 'inline-block' }}>{conciseDateTime(new Date(question.timestamp))}</span>
+                    {question.optionOne.text} : {question.optionTwo.text}
+                  </li>
+                );
               })}
             </ul>
           </section>
@@ -77,7 +83,12 @@ class Homepage extends React.Component {
             <h1>Answered questions</h1>
             <ul>
               {answeredQuestions.map(question => {
-                return <li key={question.id}>{question.optionOne.text} : {question.optionTwo.text}</li>;
+                return (
+                  <li key={question.id}>
+                    <span style={{ width: 165, display: 'inline-block' }}>{conciseDateTime(new Date(question.timestamp))}</span>
+                    {question.optionOne.text} : {question.optionTwo.text}
+                  </li>
+                );
               })}
             </ul>
           </section>

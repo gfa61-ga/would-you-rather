@@ -1,4 +1,3 @@
 export const MODULE_NAME = 'homepage';
 
-export const SET_QUESTIONS = `${MODULE_NAME}/SET_QUESTIONS`;
 export const SET_QUESTION_TYPE_FILTER = `${MODULE_NAME}/SET_QUESTION_TYPE_FILTER`;

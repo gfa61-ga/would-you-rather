@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { conciseDateTime } from 'modules/shared/helpers';
-import { getAnsweredQuestions, getQuestionTypeFilter, getUnansweredQuestions } from './selectors';
-import { fetchQuestions, setQuestionTypeFilter } from './actions';
+import { fetchQuestions } from 'modules/questions/actions';
+import { getAnsweredQuestions, getUnansweredQuestions } from 'modules/questions/selectors';
+import { getQuestionTypeFilter } from './selectors';
+import { setQuestionTypeFilter } from './actions';
 
 const tabStyle = {
   padding: 10,

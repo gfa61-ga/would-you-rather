@@ -1,6 +1,7 @@
 import { _getQuestions, _getUsers } from 'fakeApi/_DATA';
-import { loginUser, setIsLoading, setUsers } from 'modules/login/actions';
+import { loginUser, setUsers } from 'modules/login/actions';
 import { setQuestions } from 'modules/questions/actions';
+import { SET_IS_LOADING } from './constants';
 
 export const initApp = () => async dispatch => {
   const savedLoggedInUserId = JSON.parse(localStorage.getItem('loggedInUserId'));
@@ -20,3 +21,8 @@ export const initApp = () => async dispatch => {
     dispatch(loginUser(savedLoggedInUserId));
   }
 };
+
+const setIsLoading = isLoading => ({
+  type: SET_IS_LOADING,
+  payload: { isLoading }
+});

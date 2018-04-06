@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { loginUser } from './actions';
-import { getIsLoading, getUsers } from './selectors';
+import { getUsers } from './selectors';
 
 const mapStateToProps = (state) => ({
-  isLoading: getIsLoading(state),
   users: getUsers(state)
 });
 

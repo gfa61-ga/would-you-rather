@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { conciseDateTime } from 'modules/shared/helpers';
-import { fetchQuestions } from 'modules/questions/actions';
 import { getAnsweredQuestions, getUnansweredQuestions } from 'modules/questions/selectors';
 import { getQuestionTypeFilter } from './selectors';
 import { setQuestionTypeFilter } from './actions';
+import QuestionListItem from 'modules/questions/QuestionListItem';
 
 const tabStyle = {
   padding: 10,
@@ -34,15 +33,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  dispatchFetchQuestions: () => dispatch(fetchQuestions()),
   dispatchSetQuestionTypeFilter: questionTypeFilter => dispatch(setQuestionTypeFilter(questionTypeFilter))
 });
 
 class Homepage extends React.Component {
-  componentWillMount () {
-    this.props.dispatchFetchQuestions();
-  }
-
   render () {
     const { answeredQuestions, dispatchSetQuestionTypeFilter, questionTypeFilter, unansweredQuestions } = this.props;
 
@@ -71,27 +65,21 @@ class Homepage extends React.Component {
           ? <section style={panelStyle}>
             <h1>Unanswered questions</h1>
             <ul>
-              {unansweredQuestions.map(question => {
-                return (
-                  <li key={question.id}>
-                    <span style={{ width: 165, display: 'inline-block' }}>{conciseDateTime(new Date(question.timestamp))}</span>
-                    {question.optionOne.text} : {question.optionTwo.text}
-                  </li>
-                );
-              })}
+              {unansweredQuestions.map(question =>
+                <li key={question.id}>
+                  <QuestionListItem question={question} />
+                </li>
+              )}
             </ul>
           </section>
           : <section style={panelStyle}>
             <h1>Answered questions</h1>
             <ul>
-              {answeredQuestions.map(question => {
-                return (
-                  <li key={question.id}>
-                    <span style={{ width: 165, display: 'inline-block' }}>{conciseDateTime(new Date(question.timestamp))}</span>
-                    {question.optionOne.text} : {question.optionTwo.text}
-                  </li>
-                );
-              })}
+              {answeredQuestions.map(question =>
+                <li key={question.id}>
+                  <QuestionListItem question={question} />
+                </li>
+              )}
             </ul>
           </section>
         }

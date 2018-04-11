@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getAnsweredQuestions, getUnansweredQuestions } from 'modules/questions/selectors';
 import { getQuestionTypeFilter } from './selectors';
 import { setQuestionTypeFilter } from './actions';
@@ -43,6 +44,13 @@ class Homepage extends React.Component {
     return (
       <React.Fragment>
         <h1>Questions</h1>
+
+        <Link to='/add'>
+          <button className='myButton'>
+            + Add a question
+          </button>
+        </Link>
+
         <ul style={{
           listStyleType: 'none',
           display: 'flex',

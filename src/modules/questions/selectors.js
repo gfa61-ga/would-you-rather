@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { getLoggedInUserId } from 'modules/login/selectors';
+import { getLoggedInUserId, getUsers } from 'modules/login/selectors';
 
 const getModuleState = state => state.questionsModule;
 
@@ -11,6 +11,15 @@ export const getQuestion = (state, questionId) => {
   // https://github.com/reactjs/reselect#sharing-selectors-with-props-across-multiple-component-instances
   return questions.find(question => question.id === questionId);
 };
+
+export const getQuestionAuthor = createSelector(
+  [getQuestion, getUsers],
+  (question, users) => {
+    if (question && question.author) {
+      return users.find(user => user.id === question.author);
+    }
+  }
+);
 
 export const getQuestions = state => getModuleState(state).questions;
 

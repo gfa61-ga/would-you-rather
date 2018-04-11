@@ -1,0 +1,55 @@
+.MainMenu {
+  background-color: #124d77;
+  padding: 15px;
+  color: white;
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-top: -15px;
+  color: #b7d5ea;
+  height: 113px;
+  display: flex;
+  align-items: center;
+}
+
+.MainMenu ul {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+}
+
+.MainMenu li {
+  margin-right: 40px;
+}
+
+.MainMenu li:last-child {
+  margin-right: 0;
+}
+
+.MainMenu li a {
+  color: #b7d5ea;
+}
+
+.MainMenu li a:hover {
+  color: #80a1b9;
+}
+
+.MainMenu_avatarContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  border-right: 1px solid #92adc0;
+  padding-right: 40px;
+  padding-left: 25px;
+}
+
+.MainMenu_avatar {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 100%;
+  margin-bottom: 10px;
+}

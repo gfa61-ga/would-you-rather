@@ -1,4 +1,4 @@
-import { List, Record } from 'immutable';
+import { fromJS, List, Record } from 'immutable';
 import { SET_QUESTIONS } from './constants';
 
 const ModuleStateRecord = Record({
@@ -36,7 +36,7 @@ export default function homepageReducer (moduleState = initialModuleState, actio
 function transformQuestions (questions) {
   return List(Object.values(questions).map(question => new QuestionRecord({
     ...question,
-    optionOne: new OptionRecord(question.optionOne),
-    optionTwo: new OptionRecord(question.optionTwo)
+    optionOne: new OptionRecord(fromJS(question.optionOne)),
+    optionTwo: new OptionRecord(fromJS(question.optionTwo))
   })));
 }

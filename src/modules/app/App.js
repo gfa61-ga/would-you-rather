@@ -43,24 +43,27 @@ class App extends React.Component {
               </h1>
             </div>
             : <Router history={customHistory}>
-              <Switch>
-                <Route path='/login' component={Login} />
-                <PrivateRoute path='/' component={() => {
-                  return (
-                    <React.Fragment>
-                      <MainMenu />
-                      <Switch>
-                        <Route path='/' exact component={Homepage} />
-                        <Route path='/add' component={QuestionForm} />
-                        <Route path='/leaderboard' component={Leaderboard} />
-                        <Route path='/questions/not-found' component={QuestionNotFound} />
-                        <Route path='/questions/:question_id' component={Question} />
-                        <Route component={PageNotFound} />
-                      </Switch>
-                    </React.Fragment>
-                  );
-                }} />
-              </Switch>
+              <React.Fragment>
+                <MainMenu />
+                <Switch>
+                  <Route path='/login' component={Login} />
+                  <PrivateRoute path='/' component={() => {
+                    return (
+                      <React.Fragment>
+
+                        <Switch>
+                          <Route path='/' exact component={Homepage} />
+                          <Route path='/add' component={QuestionForm} />
+                          <Route path='/leaderboard' component={Leaderboard} />
+                          <Route path='/questions/not-found' component={QuestionNotFound} />
+                          <Route path='/questions/:question_id' component={Question} />
+                          <Route component={PageNotFound} />
+                        </Switch>
+                      </React.Fragment>
+                    );
+                  }} />
+                </Switch>
+              </React.Fragment>
             </Router>
           }
         </div>

@@ -1,5 +1,5 @@
 import customHistory from 'modules/app/customHistory';
-import { LOGIN_USER, SET_USERS } from './constants';
+import { SET_LOGGED_IN_USER, SET_USERS } from './constants';
 
 export const loginUser = userId => dispatch => {
   localStorage.setItem('loggedInUserId', JSON.stringify(userId));
@@ -16,7 +16,7 @@ export const logoutUser = () => dispatch => {
 };
 
 export const setLoggedInUser = userId => ({
-  type: LOGIN_USER,
+  type: SET_LOGGED_IN_USER,
   payload: { userId }
 });
 

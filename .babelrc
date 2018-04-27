@@ -1,0 +1,11 @@
+// source: https://github.com/facebook/jest/issues/2081#issuecomment-313085332
+{
+  "env": {
+    "development": {
+      "plugins": ["transform-es2015-modules-commonjs"]
+    },
+    "test": {
+      "plugins": ["transform-es2015-modules-commonjs"]
+    }
+  }
+}

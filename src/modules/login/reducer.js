@@ -5,7 +5,7 @@ import { SET_LOGGED_IN_USER, SET_USERS } from './constants';
 
 const ModuleStateRecord = Record({
   loggedInUserId: null,
-  users: []
+  users: List()
 });
 
 const initialModuleState = new ModuleStateRecord();
@@ -23,16 +23,13 @@ export default function loginReducer (moduleState = initialModuleState, action) 
 
   switch (type) {
     case SAVE_ANSWER: {
-      console.log(action, moduleState.users);
       const userIndex = moduleState.users.findIndex(user => user.id === payload.userId);
-      console.log(userIndex);
       return moduleState.updateIn(['users', userIndex, 'answers'], answers => answers.merge({ [payload.questionId]: payload.answer })
       );
     }
 
     case SAVE_NEW_QUESTION: {
       const userIndex = moduleState.users.findIndex(user => user.id === payload.author);
-      console.log('SAVE_NEW_QUESTION::LoginReducer', { payload, moduleState: moduleState.toJS() });
       return moduleState.updateIn(['users', userIndex, 'questions'], questions => questions.push(payload.questionId));
     }
 

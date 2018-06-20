@@ -19,6 +19,9 @@ For more details, see [REQUIREMENTS](./REQUIREMENTS.mdown).
 - when trying to access a question directly (e.g. [http://localhost:3000/questions/am8ehyc8byjqgar0jgpub9](http://localhost:3000/questions/am8ehyc8byjqgar0jgpub9)) the user will first be asked to log in and after login the poll's page will open automatically
 - Debug toolbox in the top right corner to change the API-Request delay so loading spinners can be inspected.
 
+#### Known Problems
++ cannot properly set a basename for the app to work on Github pages. It worked here: [https://paulkoegel-wessels.github.io/myreads/](https://paulkoegel-wessels.github.io/myreads/), where we used the `BrowserRouter`. My suspicion is that `Router`, which we use here so we can trigger URL changes imperatively via `customHistory`, has a bug in its `basename` implementation :(
+
 ## Setup
 + Install npm packages with:  
   `$ yarn`

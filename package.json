@@ -2,6 +2,7 @@
   "name": "would-you-rather",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://paulkoegel-wessels.github.io/would-you-rather",
   "dependencies": {
     "immutable": "^3.8.2",
     "react": "^16.3.0",
@@ -19,12 +20,15 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "t": "NODE_PATH='src/' jest"
+    "t": "NODE_PATH='src/' jest",
+    "predeploy": "yarn build",
+    "deploy": "yarn gh-pages -d build"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.2",
     "eslint": "^4.19.1",
     "eslint-config-semistandard-react": "^4.2.0",
-    "eslint-plugin-semistandard-react": "^4.1.0"
+    "eslint-plugin-semistandard-react": "^4.1.0",
+    "gh-pages": "^1.2.0"
   }
 }

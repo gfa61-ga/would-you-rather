@@ -24,3 +24,13 @@ For more details, see [REQUIREMENTS](./REQUIREMENTS.mdown).
 + Start the development server with:  
   `$ yarn start`
 + Should it not be opened automatically, open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Deployment
+`yarn deploy`
+
+## Routing on Github Pages
++ General setup instructions I followed:[https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#github-pages](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#github-pages)
++ Configured React Router with a basename, see [index.js](src/index.js) and: [https://github.com/facebook/create-react-app/issues/1765#issuecomment-327615099](https://github.com/facebook/create-react-app/issues/1765#issuecomment-327615099)
++ to get around the fact that Github doesn't offer a catchall route that redirect, e.g. `/search` to [index.html](public/index.html), this app uses a workaround that redirects from a [custom 404 page](public/404.html) to an app URL. Sources:
+  - [https://github.com/rafrex/spa-github-pages](https://github.com/rafrex/spa-github-pages)
+  - [https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#notes-on-client-side-routing](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#notes-on-client-side-routing)

@@ -1,5 +1,8 @@
 # "Would you rather" React App
 
++ deployed online version:
+[see demo](https://paulkoegel-wessels.github.io/would-you-rather/)
+
 ## Features
 A simple React demo app where you can:
 - log in as one of three predefined users (no password required)

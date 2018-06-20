@@ -12,6 +12,8 @@ export const getQuestion = (state, questionId) => {
   return questions.find(question => question.id === questionId);
 };
 
+export const getNewQuestion = createSelector([getModuleState], moduleState => moduleState.newQuestion);
+
 export const getQuestionAuthor = createSelector(
   [getQuestion, getUsers],
   (question, users) => {

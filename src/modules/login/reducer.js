@@ -1,5 +1,5 @@
 import { List, Record } from 'immutable';
-import { LOGIN_USER, SET_USERS } from './constants';
+import { SET_LOGGED_IN_USER, SET_USERS } from './constants';
 
 const ModuleStateRecord = Record({
   loggedInUserId: null,
@@ -20,7 +20,7 @@ export default function loginReducer (moduleState = initialModuleState, action) 
   const { type, payload } = action;
 
   switch (type) {
-    case LOGIN_USER: {
+    case SET_LOGGED_IN_USER: {
       return moduleState.set('loggedInUserId', action.payload.userId);
     }
 

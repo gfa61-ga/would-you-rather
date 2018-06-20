@@ -10,3 +10,7 @@ export const conciseDateTime = date => {
   };
   return new Intl.DateTimeFormat('en-US', options).format(date);
 };
+
+export const capitalizeFirstLetter = string => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};

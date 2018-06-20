@@ -10,7 +10,6 @@ import PageNotFound from 'modules/app/PageNotFound';
 import PrivateRoute from 'modules/shared/PrivateRoute';
 import Question from 'modules/questions/Question';
 import QuestionForm from 'modules/questions/QuestionForm';
-import QuestionNotFound from 'modules/questions/QuestionNotFound';
 import MainMenu from 'modules/app/MainMenu';
 import DebugTools from 'modules/debug-tools/DebugTools';
 import { getIsLoading } from './selectors';
@@ -50,12 +49,10 @@ class App extends React.Component {
                   <PrivateRoute path='/' component={() => {
                     return (
                       <React.Fragment>
-
                         <Switch>
                           <Route path='/' exact component={Homepage} />
                           <Route path='/add' component={QuestionForm} />
                           <Route path='/leaderboard' component={Leaderboard} />
-                          <Route path='/questions/not-found' component={QuestionNotFound} />
                           <Route path='/questions/:question_id' component={Question} />
                           <Route component={PageNotFound} />
                         </Switch>

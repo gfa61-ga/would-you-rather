@@ -1,7 +1,9 @@
 import './Question.css';
+
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 import { getIsLoading } from 'modules/app/selectors';
 import { getLoggedInUser } from 'modules/login/selectors';
 import { getQuestion, getQuestionAuthor } from 'modules/questions/selectors';
@@ -20,7 +22,12 @@ class Question extends React.Component {
 
     // need to take loading state into account for when loading the URL directly
     if (!isLoading && !question) {
-      return <Redirect to='/questions/not-found' />;
+      return <div>
+        <h1>404 - Question not found</h1>
+        <p>
+        Try going back to the <Link to='/'>home page</Link>.
+        </p>
+      </div>;
     }
 
     const answerOneCount = question.optionOne.votes.size;

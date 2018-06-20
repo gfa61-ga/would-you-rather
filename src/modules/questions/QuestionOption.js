@@ -9,12 +9,17 @@ export default class QuestionOption extends React.Component {
     const percentage = toPercent(answersCount / totalAnswers);
 
     return (
-      // need to take loading state into account for when loading the URL directly
-      <span className={`QuestionOption${isActive ? ' isActive' : ''}`}>
-        {totalAnswers > 0
-          ? `${option.text} (${answersCount}, ${percentage}%)`
-          : option.text}
-      </span>
+      <React.Fragment>
+        { isActive &&
+          <React.Fragment>
+            <u>your answer: </u>
+          </React.Fragment> }
+        <span className={`QuestionOption${isActive ? ' isActive' : ''}`}>
+          {totalAnswers > 0
+            ? `${option.text} (${answersCount} answers, ${percentage}%)`
+            : option.text}
+        </span>
+      </React.Fragment>
     );
   }
 }

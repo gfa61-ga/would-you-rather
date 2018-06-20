@@ -7,7 +7,7 @@
 
 + flesh out `/questions/:question_id`:
   (+ The application shows a 404 page if that poll does not exist. (Please keep in mind that new polls will not be accessible at their url because of the way the backend is set up in this application.))
-  + Does the voting mechanism work correctly?
+  (+ Does the voting mechanism work correctly?)
   + Upon voting in a poll, all of the information of the answered poll is displayed.
   + The user’s response is recorded and is clearly visible on the poll details page.
   + When the user comes back to the home page, the polling question appears in the “Answered” column.

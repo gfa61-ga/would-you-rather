@@ -1,12 +1,11 @@
 import { fromJS, List, Record } from 'immutable';
-import { generate } from 'shortid';
 
 import { capitalizeFirstLetter } from 'modules/shared/helpers';
-import { SAVE_NEW_QUESTION, SET_QUESTIONS, UPDATE_NEW_QUESTION_TEXT } from './constants';
+import { SAVE_ANSWER, SAVE_NEW_QUESTION, SET_QUESTIONS, UPDATE_NEW_QUESTION_TEXT } from './constants';
 
 const OptionRecord = Record({
   text: null,
-  votes: []
+  votes: List()
 });
 
 const QuestionRecord = Record({
@@ -28,12 +27,17 @@ export default function homepageReducer (moduleState = initialModuleState, actio
   const { type, payload } = action;
 
   switch (type) {
+    case SAVE_ANSWER: {
+      const questionIndex = moduleState.questions.findIndex(question => question.id === payload.questionId);
+      return moduleState.updateIn(['questions', questionIndex, payload.answer, 'votes'], votes => votes.push(payload.userId));
+    }
+
     case SAVE_NEW_QUESTION: {
       return moduleState
         .update('questions', questions => {
           const newQuestion = moduleState.newQuestion.merge({
             author: payload.author,
-            id: generate(),
+            id: payload.questionId,
             timestamp: Date.now()
           });
           return questions.push(newQuestion);

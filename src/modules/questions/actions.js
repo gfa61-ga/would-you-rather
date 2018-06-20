@@ -1,10 +1,17 @@
+import { generate } from 'shortid';
+
 import customHistory from 'modules/app/customHistory';
-import { SAVE_NEW_QUESTION, SET_QUESTIONS, UPDATE_NEW_QUESTION_TEXT } from './constants';
+import { SAVE_ANSWER, SAVE_NEW_QUESTION, SET_QUESTIONS, UPDATE_NEW_QUESTION_TEXT } from './constants';
+
+export const saveAnswer = (userId, questionId, answer) => ({
+  payload: { answer, questionId, userId },
+  type: SAVE_ANSWER
+});
 
 export const saveNewQuestion = (userId) => {
   customHistory.push('/');
   return {
-    payload: { author: userId },
+    payload: { author: userId, questionId: generate() },
     type: SAVE_NEW_QUESTION
   };
 };

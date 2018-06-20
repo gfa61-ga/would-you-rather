@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import { makeUrl } from 'modules/shared/helpers';
 import { getAnsweredQuestions, getUnansweredQuestions } from 'modules/questions/selectors';
 import { getQuestionTypeFilter } from './selectors';
 import { setQuestionTypeFilter } from './actions';
@@ -45,7 +47,7 @@ class Homepage extends React.Component {
       <React.Fragment>
         <h1>Questions</h1>
 
-        <Link to='/add'>
+        <Link to={makeUrl('/add')}>
           <button className='myButton'>
             + Add a question
           </button>

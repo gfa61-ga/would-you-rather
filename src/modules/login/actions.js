@@ -1,4 +1,5 @@
 import customHistory from 'modules/app/customHistory';
+import { makeUrl } from 'modules/shared/helpers';
 import { SET_LOGGED_IN_USER, SET_USERS } from './constants';
 
 export const loginUser = userId => dispatch => {
@@ -6,7 +7,7 @@ export const loginUser = userId => dispatch => {
   dispatch(setLoggedInUser(userId));
   const originalUrl = JSON.parse(localStorage.getItem('originalUrl'));
   const redirectUrl = originalUrl && originalUrl !== '/login' ? originalUrl : '/';
-  customHistory.push(redirectUrl);
+  customHistory.push(makeUrl(redirectUrl));
   localStorage.removeItem('originalUrl');
 };
 

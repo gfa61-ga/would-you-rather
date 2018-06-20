@@ -4,6 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { makeUrl } from 'modules/shared/helpers';
 import { getIsLoading } from 'modules/app/selectors';
 import { getLoggedInUser } from 'modules/login/selectors';
 import { getQuestion, getQuestionAuthor } from 'modules/questions/selectors';
@@ -31,7 +32,7 @@ class Question extends React.Component {
       return <div>
         <h1>404 - Question not found</h1>
         <p>
-           Try going back to the <Link to='/'>home page</Link>.
+           Try going back to the <Link to={makeUrl('/')}>home page</Link>.
         </p>
       </div>;
     }

@@ -2,6 +2,8 @@ import './MainMenu.css';
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import { makeUrl } from 'modules/shared/helpers';
 import { getLoggedInUser } from 'modules/login/selectors';
 import { logoutUser } from 'modules/login/actions';
 
@@ -26,17 +28,17 @@ class MainMenu extends React.Component {
             </li>
           }
           <li>
-            <Link to='/'>
+            <Link to={makeUrl('/')}>
               Home
             </Link>
           </li>
           <li>
-            <Link to='/add'>
+            <Link to={makeUrl('/add')}>
               Create new question
             </Link>
           </li>
           <li>
-            <Link to='/leaderboard'>
+            <Link to={makeUrl('/leaderboard')}>
               Leaderboard
             </Link>
           </li>

@@ -41,7 +41,7 @@ class App extends React.Component {
                   Loading...
               </h1>
             </div>
-            : <Router history={customHistory} basename={process.env.PUBLIC_URL}>
+            : <Router history={customHistory}>
               <React.Fragment>
                 <MainMenu />
                 <Switch>
